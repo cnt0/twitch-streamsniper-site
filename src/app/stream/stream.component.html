@@ -1,0 +1,22 @@
+<div class="stream" *ngIf="stream">
+  <div class='streamImg'>
+    <img src={{stream.preview.medium}}/>
+  </div>
+  <div class='streamData'>
+    <span *ngIf="updating; else notUpdating">
+      <span class="updateBtn updating">please wait...</span>
+    </span>   
+    <ng-template #notUpdating>
+      <span class="updateBtn" (click)="get_formats()">Update formats</span>
+    </ng-template>
+    
+    <a class='streamUrl' href={{stream.channel.url}}>{{stream.channel.display_name}}</a>
+    <i> {{stream.channel.status}} ({{stream.viewers}} viewers)</i>
+    <ul *ngIf='stream.formats'>
+      <li *ngFor="let format of stream.formats">
+        <span class="playBtn" (click)="play_video(format.url)">Play!</span>
+        <a href={{format.url}} target="_blank">{{format.format}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
