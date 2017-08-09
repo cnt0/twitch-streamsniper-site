@@ -11,14 +11,16 @@ export class StreamsService {
   constructor(private http: Http) { }
 
   get_streams(): Promise<StreamList> {
-    return this.http.get('http://localhost:8080/update')
+    //return this.http.get('http://localhost:8080/update')
+    return this.http.get('/update')
       .toPromise()
       .then(response => response.json() as StreamList)
       .catch(this.handleError);
   }
 
   get_formats(display_name: string): Promise<Stream> {
-    return this.http.get("http://localhost:8080/formats?s=" + display_name)
+    //return this.http.get("http://localhost:8080/formats?s=" + display_name)
+    return this.http.get("/formats?s=" + display_name)
       .toPromise()
       .then(response => response.json() as Stream)
       .catch(this.handleError);
