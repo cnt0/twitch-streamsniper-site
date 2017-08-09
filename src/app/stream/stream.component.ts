@@ -26,4 +26,16 @@ export class StreamComponent {
   play_video(url: string): void {
     this.streamsService.play_video(url);
   }
+
+  clip(text: string): void {
+    let fakeElement = document.createElement('textarea');
+    fakeElement.style.position = 'fixed';
+    fakeElement.style.top = '100%';
+    fakeElement.readOnly = true;
+    fakeElement.value = text;
+    document.body.appendChild(fakeElement);
+    fakeElement.select();
+    document.execCommand('copy');
+    document.body.removeChild(fakeElement);
+  }
 }

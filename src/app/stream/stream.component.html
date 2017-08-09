@@ -15,6 +15,7 @@
     <ul *ngIf='stream.formats'>
       <li *ngFor="let format of stream.formats">
         <span class="playBtn" (click)="play_video(format.url)">Play!</span>
+        <span class="playBtn" (click)="clip(format.url)">Clip!</span>
         <a href={{format.url}} target="_blank">{{format.format}}</a>
       </li>
     </ul>
