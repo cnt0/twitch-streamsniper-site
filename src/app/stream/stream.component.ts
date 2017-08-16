@@ -17,7 +17,7 @@ export class StreamComponent {
   get_formats(): void {
     this.updating = true;
     this.streamsService.get_formats(this.stream.channel.display_name)
-      .then(s => {
+      .subscribe(s => {
         this.stream = s as Stream;
         this.updating = false;
       });

@@ -16,6 +16,6 @@ export class AppComponent implements OnInit {
   streams: StreamList;
 
   ngOnInit() : void {
-    this.streamsService.get_streams().then(s => this.streams = s);
+    this.streamsService.get_streams().subscribe(s => this.streams = s);
   }
 }
