@@ -16,6 +16,10 @@ export class StreamComponent {
   @Input() stream: Stream;
   updating: boolean = false;
 
+  get_preview_url(): string {
+    return this.stream.preview.medium + '#' + new Date().getTime();
+  }
+
   get_formats(): void {
     this.updating = true;
     this.streamsService.get_formats(this.stream.channel.display_name)

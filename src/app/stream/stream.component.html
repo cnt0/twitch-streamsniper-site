@@ -1,6 +1,6 @@
 <div class="stream" *ngIf="stream">
   <div class='streamImg'>
-    <img src={{stream.preview.medium}}/>
+    <img [src]="get_preview_url()"/>
   </div>
   <div class='streamData'>
     <span *ngIf="updating; else notUpdating">
