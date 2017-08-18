@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import 'rxjs/add/operator/timeout';
+
 import { Stream, StreamList } from '../stream';
 import { StreamsService } from '../streams.service';
 
@@ -17,6 +19,7 @@ export class StreamComponent {
   get_formats(): void {
     this.updating = true;
     this.streamsService.get_formats(this.stream.channel.display_name)
+      .timeout(5000)
       .subscribe(s => {
         this.stream = s as Stream;
         this.updating = false;
