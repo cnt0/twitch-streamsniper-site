@@ -26,6 +26,7 @@
 
 ul {
   list-style-type: none;
+  margin-top: 16px;
 }
 
 ul li:before {
